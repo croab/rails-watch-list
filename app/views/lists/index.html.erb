@@ -1,5 +1,6 @@
 <div class="container">
   <% @lists.each do |list| %>
+    <%= cl_image_tag(list.photo.key, width: 400, height: 300, crop: :fill) %>
     <h2><%= list.name %> <%= link_to 'See more', list_path(list), class: 'btn btn-primary' %></h2>
 
   <% end %>
