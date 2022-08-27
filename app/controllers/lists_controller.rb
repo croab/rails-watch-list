@@ -6,6 +6,8 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @bookmarks = @list.bookmarks
+    # New for moving bookmark creation
+    @bookmark = Bookmark.new
   end
 
   def new
