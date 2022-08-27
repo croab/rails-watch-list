@@ -19,6 +19,31 @@
       </div>
     </div>
   </div>
+  <div class="card-bookmark my-3">
+    <div class="card-product-infos p-3">
+      <h2>Add a review</h2>
+      <div class="container">
+        <%= simple_form_for [@list, @review] do |f| %>
+          <%= f.input :comment %>
+          <%= f.input :rating %>
+          <%= f.button :submit, class: "btn button-green" %>
+        <% end %>
+      </div>
+      <div class="container review-list">
+        <% if @reviews.empty? %>
+          <h3>No reviews yet!</h3>
+        <% else %>
+          <h3>Current reviews:</h3>
+          <% @reviews.each do |review| %>
+            <div class="review-item">
+              <p><%= review.comment %></p>
+              <p><%= review.rating %> stars</p>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
   <% if @bookmarks.empty? %>
     <h3 class="my-3">Your bookmarks await!</h3>
   <% else %>
@@ -32,8 +57,8 @@
                 bookmark_path(bookmark),
                 data: {turbo_method: :delete, turbo_confirm: "Are you sure?"},
                 class: 'btn btn-danger btn-text-white' %>
-            <% end %>
           </div>
+        <% end %>
       </div>
     </div>
   <% end %>
