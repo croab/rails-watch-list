@@ -8,8 +8,8 @@
 
 <div class="container my-3">
   <% @lists.each do |list| %>
-    <div class="card-product">
-      <%= cl_image_tag(list.photo.key, crop: :fill, class: "card-image avatar-large") %>
+    <div class="card-product m-2">
+      <%= cl_image_tag(list.photo.key, crop: :fill, class: "card-image") %>
       <div class="card-product-infos">
         <div class="card-item-h2">
           <h2><%= list.name %></h2>
@@ -20,5 +20,5 @@
       </div>
     </div>
   <% end %>
-  <%= link_to 'Create list', new_list_path, class: 'btn btn-primary mt-4 button-green' %>
+  <%= link_to 'Create list', new_list_path, class: 'btn btn-primary mt-4 button-green mx-2' %>
 </div>
